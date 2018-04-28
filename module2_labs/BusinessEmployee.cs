@@ -1,21 +1,22 @@
 ﻿using System;
 namespace module2_labs
 {
-    public class BusinessEmployee : Employee
+    // BusinessEmployee Class inheriting from Employee Class
+    class BusinessEmployee : Employee
     {
-        public BusinessEmployee(string name) : base(name, 50000)
+        // Creates double variable called "bonusBudget" and assigns value to 1000
+        public double bonusBudget = 1000;
+
+        // Calls upon base-class (Employee Class) constructor from within derived class (BusinessEmployee Class)
+        // Sets baseSalary to 50000 for all BusinessEmployee objects
+        public BusinessEmployee(String name) : base(name, 50000)
         {
         }
 
-        //creates double var called bonusBudget and assigns value to 1000
-        public double bonusBudget = 1000;
-
-        //this method returns the toString() method - which is the employee's ID number and name - and prints the bonus budget
-        public override string employeeStatus()
+        // This method returns the toString() method - which is the employee's ID number and name - and prints the bonus budget
+        public override String employeeStatus()
         {
             return toString() + " with a budget of " + this.bonusBudget;
         }
-
-
     }
 }
