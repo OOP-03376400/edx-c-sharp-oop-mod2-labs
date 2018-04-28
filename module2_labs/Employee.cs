@@ -1,14 +1,18 @@
 ﻿using System;
 namespace module2_labs
 {
-    public class Employee
+    // Abstract class
+    abstract class Employee
     {
-        //private member variables
+        // Creates integer variable called "employeeCount" and assigns value to 1
+        private static int employeeCount = 1;
+
+        // 3 private member variables: employeeName, employeeBaseSalary, and employeeId
         private string employeeName;
         private double employeeBaseSalary;
         private int employeeId;
 
-        //Public properties
+        // Public properties
         public string Name
         {
             get
@@ -21,7 +25,6 @@ namespace module2_labs
                 employeeName = value;
             }
         }
-
         public double BaseSalary
         {
             get
@@ -34,7 +37,6 @@ namespace module2_labs
                 employeeBaseSalary = value;
             }
         }
-
         public int ID
         {
             get
@@ -48,45 +50,39 @@ namespace module2_labs
             }
         }
 
-        //creates integer variable called employeeCount and assigns value to 1
-        private static int employeeCount = 1;
-
-        //constructor
-        public Employee(string name, double baseSalary)
+        // Constructor
+        public Employee(String name, double baseSalary)
         {
             this.Name = name;
             this.BaseSalary = baseSalary;
             this.ID = employeeCount++;
         }
 
-        //method to return employee base salary
+        // This method returns the employee's base salary
         public double getBaseSalary()
         {
             return this.BaseSalary;
         }
 
-        // This method returns the employee name
-        public string getName()
+        // This method returns the employee's name
+        public String getName()
         {
             return this.Name;
         }
-        //this method returns the employee's ID
+
+        // This method returns the employee's ID
         public int getEmployeeID()
         {
             return this.ID;
         }
 
-        //this method returns the employee's ID and Name
-        public string toString()
+        // This method returns the employee's ID and Name
+        public String toString()
         {
             return this.ID + " " + this.Name;
         }
 
-        //this method returns the employee's ID and confirms that the employee is in the system
-        public virtual string employeeStatus()
-        {
-            return toString() + " is in the company's system";
-        }
-
+        // Abstract method
+        public abstract String employeeStatus();
     }
 }
